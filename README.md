@@ -43,6 +43,17 @@ npm run build     # production-сборка в dist/
 npm run preview   # просмотр собранной версии
 ```
 
+## Проверка без инстанса GREEN-API
+
+В проекте есть локальный эмулятор GREEN-API: [`scripts/mock-green-api.mjs`](scripts/mock-green-api.mjs). Он реализует `getStateInstance`, `sendMessage`, `receiveNotification` и `deleteNotification`, ставит отправленным сообщениям статусы «доставлено» и «прочитано», а через пару секунд присылает ответ от получателя.
+
+```bash
+npm run mock   # в одном терминале
+npm run dev    # в другом
+```
+
+В форме входа укажите `apiUrl` = `http://localhost:3999`, а `idInstance` и `apiTokenInstance` любые. Токен `wrong` имитирует неверные данные.
+
 ## Подготовка инстанса GREEN-API
 
 1. Зарегистрируйтесь в [личном кабинете](https://console.green-api.com) и создайте инстанс MAX (или WhatsApp).
